@@ -5,12 +5,12 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.innervoice.allports import tables as allportstable
+from openstack_dashboard.dashboards.cloudbuilder.neutronportlist import tables as neutronportlisttable
 
 class IndexView(tables.DataTableView):
     # A very simple class-based view...
-    table_class = allportstable.AllPortsTable
-    template_name = 'innervoice/allports/index.html'
+    table_class = neutronportlisttable.NeutronPortListTable
+    template_name = 'cloudbuilder/neutronportlist/index.html'
 
     def get_data(self):
         # Add data to the context here...

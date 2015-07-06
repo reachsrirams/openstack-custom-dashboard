@@ -1,7 +1,7 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.innervoice.allports import views
+from openstack_dashboard.dashboards.cloudbuilder.neutronportlist import views
 
 
 urlpatterns = patterns(

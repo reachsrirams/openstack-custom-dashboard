@@ -21,7 +21,7 @@ def get_attached(port):
 def get_network_link(datum):
 	return reverse('horizon:project:networks:detail', kwargs={'network_id': datum.network_id})
 
-class AllPortsTable(tables.DataTable):
+class NeutronPortListTable(tables.DataTable):
     device_ip = tables.Column("binding:host_id", verbose_name=_("Host"))
     network_id = tables.Column('network_name', verbose_name=_("Network"), link=get_network_link)
     device_id = tables.Column("name_or_id", verbose_name=_("Port"), link="horizon:project:networks:ports:detail")
@@ -30,13 +30,13 @@ class AllPortsTable(tables.DataTable):
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     port_status = tables.Column('status', verbose_name=_("Port Status"))
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(AllPortsTable, self).__init__(
+        super(NeutronPortListTable, self).__init__(
             request,
             data=data,
             needs_form_wrapper=needs_form_wrapper,
             **kwargs)
 
     class Meta:
-        name = "allports"
-        verbose_name = _("All Ports 1")
+        name = "neutronportlist"
+        verbose_name = _("Neutron Port List")
 
