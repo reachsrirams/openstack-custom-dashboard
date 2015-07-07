@@ -4,8 +4,8 @@ import horizon
 from openstack_dashboard.dashboards.cloudbuilder import dashboard
 
 class NeutronPortListPanel(horizon.Panel):
-    name = _("Neutron Port List")
+    name = _("Port List")
     slug = "neutronportlist"
 
 
-dashboard.cloudbuilder.register(NeutronPortListPanel)
+dashboard.CloudBuilderDashboard.register(NeutronPortListPanel)

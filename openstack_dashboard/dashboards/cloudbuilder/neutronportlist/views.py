@@ -15,10 +15,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         # Add data to the context here...
         ports = api.neutron.port_list(self.request)
-        networks = api.neutron.network_list(self.request)
-        netmap = {}
-        for n in networks:
-            netmap[n.id] = n.name
+        netmap = api.cloudbuilder_neutron.get_network_name_mapping(self.request)
         for p in ports:
             p.network_name = netmap[p.network_id]
         return ports
