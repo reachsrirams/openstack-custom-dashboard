@@ -4,6 +4,7 @@ from django import template
 
 from horizon import tables
 
+
 def get_fixed_ips(port):
     template_name = 'project/networks/ports/_port_ips.html'
     context = {"ips": port.fixed_ips}
@@ -18,8 +19,10 @@ def get_attached(port):
     else:
         return _('Detached')
 
+
 def get_network_link(datum):
-	return reverse('horizon:project:networks:detail', kwargs={'network_id': datum.network_id})
+    return reverse('horizon:project:networks:detail', kwargs={'network_id': datum.network_id})
+
 
 class NeutronPortListTable(tables.DataTable):
     device_ip = tables.Column("binding:host_id", verbose_name=_("Host"))
@@ -29,6 +32,7 @@ class NeutronPortListTable(tables.DataTable):
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     port_status = tables.Column('status', verbose_name=_("Port Status"))
+
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(NeutronPortListTable, self).__init__(
             request,
@@ -39,4 +43,3 @@ class NeutronPortListTable(tables.DataTable):
     class Meta:
         name = "neutronportlist"
         verbose_name = _("Neutron Port List")
-

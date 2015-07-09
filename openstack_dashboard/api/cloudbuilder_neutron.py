@@ -1,6 +1,6 @@
 from openstack_dashboard import api
 
-def get_network_name_mapping(request, tenant_id, **params):
+def get_network_name_mapping_for_tenant(request, tenant_id, **params):
     networks = api.neutron.network_list_for_tenant(request, tenant_id, **params)
     return create_network_name_mapping(networks)
 
