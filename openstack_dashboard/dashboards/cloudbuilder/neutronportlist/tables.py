@@ -42,4 +42,4 @@ class NeutronPortListTable(tables.DataTable):
 
     class Meta:
         name = "neutronportlist"
-        verbose_name = _("Neutron Port List")
+        verbose_name = _("Neutron Ports")

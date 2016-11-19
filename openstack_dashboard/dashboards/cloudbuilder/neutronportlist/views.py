@@ -1,11 +1,11 @@
 from horizon import tables
 from openstack_dashboard import api
 
-import openstack_dashboard.dashboards.cloudbuilder.neutronportlist as neutronportlist
+from openstack_dashboard.dashboards.cloudbuilder.neutronportlist import tables as neutronportlisttable
 
 class IndexView(tables.DataTableView):
     # A very simple class-based view...
-    table_class = neutronportlist.tables.NeutronPortListTable
+    table_class = neutronportlisttable.NeutronPortListTable
     template_name = 'cloudbuilder/neutronportlist/index.html'
 
     def get_data(self):
