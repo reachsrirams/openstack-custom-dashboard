@@ -5,7 +5,7 @@ import horizon
 class NeutronPanels(horizon.PanelGroup):
     name = _("Neutron")
     slug = "cloudbuilderneutron"
-    panels = ('neutronportlist')
+    panels = ('neutronportlist',)
     default_panel = 'neutronportlist'
 
 class CloudBuilderDashboard(horizon.Dashboard):
